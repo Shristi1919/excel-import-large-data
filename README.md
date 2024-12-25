@@ -1,20 +1,10 @@
 Excel Upload for Laravel
 This repository provides an efficient solution for uploading and processing large Excel files in a Laravel application. It utilizes background jobs to handle large data sets without compromising the application's performance.
 
-# Table of Contents
-
--Installation
--Configuration
--Usage
--File Upload Workflow
--Job Processing
--Testing
--Troubleshooting
-
 # Installation
 
 1. Clone the Repository
-   -git clone https://github.com/yourusername/excel-upload.git
+   -git clone https://github.com/Shristi1919/excel-import-large-data.git
 
 2. Install Dependencies
    Run the following command to install the necessary PHP and Laravel dependencies:
