@@ -132,11 +132,12 @@
     <script>
         let currentPage = 1;
         const pageRange = 12; // Number of pages to display at once
+        const apiBaseUrl = "{{ env('APP_URL') }}"; // Dynamically set from .env
 
         // Fetch data and render the table
         function fetchData(page = 1) {
             $.ajax({
-                url: `http://127.0.0.1:8000/api/getlist?page=${page}`,
+                url: `${apiBaseUrl}/api/getlist?page=${page}`,
                 method: 'GET',
                 success: function(response) {
                     // Render table rows
@@ -144,9 +145,13 @@
 
                     // Render pagination
                     renderPagination(response.data.current_page, response.data.last_page);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data:", error);
                 }
             });
         }
+
 
         // Render table data
         function renderTable(data) {

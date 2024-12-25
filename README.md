@@ -7,7 +7,7 @@ Screenshots illustrating the key features and steps of the implementation are pr
 # Installation
 
 1. Clone the Repository
-   -git clone https://github.com/Shristi1919/excel-import-large-data.git
+   git clone https://github.com/Shristi1919/excel-import-large-data.git
 
 2. Install Dependencies
    Run the following command to install the necessary PHP and Laravel dependencies:
