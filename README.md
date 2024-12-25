@@ -75,9 +75,9 @@ This repository provides an efficient solution for uploading and processing larg
    To test that the job is properly processed, check the excel_imports table in your database after uploading the Excel file. If the data is correctly imported, the job worked as expected.
 
 # Troubleshooting
-File Upload Errors: If you encounter issues with file uploads, ensure that your upload_max_filesize and post_max_size settings in PHP are correctly configured.
+   File Upload Errors: If you encounter issues with file uploads, ensure that your upload_max_filesize and post_max_size settings in PHP are correctly configured.
 
-Queue Worker Not Running: If jobs aren't being processed, ensure that the queue worker is running by executing:
- -php artisan queue:work
+   Queue Worker Not Running: If jobs aren't being processed, ensure that the queue worker is running by executing:
+    -php artisan queue:work
 
 
