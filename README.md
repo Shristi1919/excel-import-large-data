@@ -85,18 +85,18 @@ This repository provides an efficient solution for uploading and processing larg
 # [Download the sample file- 10000 Row Excel] 
 https://docs.google.com/spreadsheets/d/19bcOTZkb1dxVF-nKO_QH7I_Ox0xTmcqRL4vwhfaizEo/edit?usp=sharing
 
-# Screenshot
+# Screenshot 
 ![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20193235.png)
 
 
-https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20204909.png
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20204909.png)
 
-https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205052.png
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205052.png)
 
-https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205143.png
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205143.png)
 
-https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205334.png
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205334.png)
 
-https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205454.png
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205454.png)
 
-https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205615.png
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205615.png)
