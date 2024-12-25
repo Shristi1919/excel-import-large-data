@@ -80,23 +80,29 @@ This repository provides an efficient solution for uploading and processing larg
    Queue Worker Not Running: If jobs aren't being processed, ensure that the queue worker is running by executing:
     -php artisan queue:work
 
-
-
 # [Download the sample file- 10000 Row Excel] 
 https://docs.google.com/spreadsheets/d/19bcOTZkb1dxVF-nKO_QH7I_Ox0xTmcqRL4vwhfaizEo/edit?usp=sharing
 
-# Screenshot 
+# Screenshot of EXcel Data
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205615.png)
+
+# Screenshot of EXcel Data (No record Found)
 ![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20193235.png)
 
-
-![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20204909.png)
-
-![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205052.png)
-
-![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205143.png)
-
+# Screenshot of File Upload in Process
 ![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205334.png)
 
+# Screenshot of List of Data Uploaded
 ![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205454.png)
 
-![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205615.png)
+# Screenshot of File too Large Validation
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20204909.png)
+
+# Screenshot of Invalid File Structure Validation
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205052.png)
+
+# Screenshot of Invalid File Type Validation
+![Screenshot](https://github.com/Shristi1919/excel-import-large-data/blob/main/public/screenshot/Screenshot%202024-12-25%20205143.png)
+
+
+
