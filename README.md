@@ -12,15 +12,15 @@ Screenshots illustrating the key features and steps of the implementation are pr
 2. Install Dependencies
    Run the following command to install the necessary PHP and Laravel dependencies:
    
-   **-composer install**
+   **composer install**
 
    You will also need to install the maatwebsite/excel package for Excel file handling:
 
-   **-composer require maatwebsite/excel**
+   **composer require maatwebsite/excel**
 
 3. Set Up the Database
    Run the migrations to set up the database schema (if not already configured):
-    -php artisan migrate
+    **php artisan migrate**
 
 # Configuration
 
@@ -28,21 +28,21 @@ Screenshots illustrating the key features and steps of the implementation are pr
    Update the .env file with the necessary configurations:
 
    Set the file upload size limit:
-    -UPLOAD_MAX_FILE_SIZE=10240
+    **UPLOAD_MAX_FILE_SIZE=10240**
 
    Ensure your PHP configuration allows for large file uploads:
-    -upload_max_filesize = 10M
-    -post_max_size = 10M 
+    **upload_max_filesize = 10M**
+    **post_max_size = 10M**
     
 2. Queue Configuration
 
    Ensure your queue system is correctly configured to handle background jobs:
     In .env, configure the queue connection (e.g., database, Redis):
-    -QUEUE_CONNECTION=database
+    **QUEUE_CONNECTION=database**
 
     Run the queue migration to set up the necessary tables:
-    -php artisan queue:table
-    -php artisan migrate
+    **php artisan queue:table**
+    **php artisan migrate**
 
 # Usage
 
@@ -50,9 +50,9 @@ Screenshots illustrating the key features and steps of the implementation are pr
    To upload an Excel file, use the /upload-excel API route. Send a POST request with the Excel file attached.
 
     Example Request:
-     -POST /api/upload-excel
-     -Content-Type: multipart/form-data
-     -file: <your_excel_file.xlsx>
+     **POST /api/upload-excel**
+     **Content-Type: multipart/form-data**
+     **file: <your_excel_file.xlsx>**
 
 
 # File Upload Workflow
@@ -83,7 +83,7 @@ Screenshots illustrating the key features and steps of the implementation are pr
    File Upload Errors: If you encounter issues with file uploads, ensure that your upload_max_filesize and post_max_size settings in PHP are correctly configured.
 
    Queue Worker Not Running: If jobs aren't being processed, ensure that the queue worker is running by executing:
-    -php artisan queue:work
+    **php artisan queue:work**
 
 # [Download the sample file- 10000 Row Excel] 
 https://docs.google.com/spreadsheets/d/19bcOTZkb1dxVF-nKO_QH7I_Ox0xTmcqRL4vwhfaizEo/edit?usp=sharing
