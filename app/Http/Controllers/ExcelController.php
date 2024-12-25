@@ -29,7 +29,6 @@ class ExcelController extends Controller
                 'file.max' => 'The file is too large. Maximum file size is 10MB.',
             ]);
 
-            // Get the uploaded file
             $file = $request->file('file');
 
             // Read the first row from the Excel file to validate headers
@@ -95,8 +94,7 @@ class ExcelController extends Controller
 
     public function getImportedExcelData(Request $request)
     {
-        // Get the imported data and paginate it. You can set the number of items per page (e.g., 10 or 20).
-        $importedData = ExcelImport::paginate(100); // Adjust the number as needed
+        $importedData = ExcelImport::paginate(100);
 
         // Return the paginated data as a JSON response
         return response()->json([
