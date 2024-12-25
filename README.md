@@ -12,11 +12,11 @@ Screenshots illustrating the key features and steps of the implementation are pr
 2. Install Dependencies
    Run the following command to install the necessary PHP and Laravel dependencies:
    
-   **composer install**
+   **-composer install**
 
    You will also need to install the maatwebsite/excel package for Excel file handling:
 
-   **composer require maatwebsite/excel**
+   **-composer require maatwebsite/excel**
 
 3. Set Up the Database
    Run the migrations to set up the database schema (if not already configured):
