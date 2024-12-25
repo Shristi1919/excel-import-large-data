@@ -50,11 +50,14 @@ Screenshots illustrating the key features and steps of the implementation are pr
    To upload an Excel file, use the /upload-excel API route. Send a POST request with the Excel file attached.
 
     Example Request:
-     **POST /api/upload-excel**
+    **POST**:
+    - `/api/upload-excel`
 
-     **Content-Type: multipart/form-data**
-     
-     **file: <your_excel_file.xlsx>**
+    **Headers**:
+    - `Content-Type: multipart/form-data`
+
+    **Body**:
+    - `file`: `<your_excel_file.xlsx>`
 
 
 # File Upload Workflow
