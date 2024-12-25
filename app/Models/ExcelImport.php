@@ -11,7 +11,6 @@ class ExcelImport extends Model
 
     protected $table = 'excel_imports';
 
-    // Fields that can be mass assigned
     protected $fillable = [
         'name',
         'email',

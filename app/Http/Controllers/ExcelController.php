@@ -87,10 +87,6 @@ class ExcelController extends Controller
 
         return $headers === $expectedHeaders;
     }
-/**
- * Get Imported Data List.
- *
- */
 
     public function getImportedExcelData(Request $request)
     {
