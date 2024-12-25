@@ -81,3 +81,8 @@ This repository provides an efficient solution for uploading and processing larg
     -php artisan queue:work
 
 
+
+# [Download the sample file- 10000 Row Excel] 
+https://docs.google.com/spreadsheets/d/19bcOTZkb1dxVF-nKO_QH7I_Ox0xTmcqRL4vwhfaizEo/edit?usp=sharing
+
+# Screenshot
