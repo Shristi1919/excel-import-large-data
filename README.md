@@ -1,66 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Excel Upload for Laravel
+This repository provides an efficient solution for uploading and processing large Excel files in a Laravel application. It utilizes background jobs to handle large data sets without compromising the application's performance.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Table of Contents
 
-## About Laravel
+-Installation
+-Configuration
+-Usage
+-File Upload Workflow
+-Job Processing
+-Testing
+-Troubleshooting
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Installation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Clone the Repository
+   -git clone https://github.com/yourusername/excel-upload.git
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. Install Dependencies
+   Run the following command to install the necessary PHP and Laravel dependencies:
+    -composer install
 
-## Learning Laravel
+   You will also need to install the maatwebsite/excel package for Excel file handling:
+    -composer require maatwebsite/excel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. Set Up the Database
+   Run the migrations to set up the database schema (if not already configured):
+    -php artisan migrate
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+# Configuration
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Environment Configuration
+   Update the .env file with the necessary configurations:
 
-## Laravel Sponsors
+   Set the file upload size limit:
+    -UPLOAD_MAX_FILE_SIZE=10240
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+   Ensure your PHP configuration allows for large file uploads:
+    -upload_max_filesize = 10M
+    -post_max_size = 10M 
+    
+2. Queue Configuration
 
-### Premium Partners
+   Ensure your queue system is correctly configured to handle background jobs:
+    In .env, configure the queue connection (e.g., database, Redis):
+    -QUEUE_CONNECTION=database
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    Run the queue migration to set up the necessary tables:
+    -php artisan queue:table
+    -php artisan migrate
 
-## Contributing
+# Usage
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Upload Excel File
+   To upload an Excel file, use the /upload-excel API route. Send a POST request with the Excel file attached.
 
-## Code of Conduct
+    Example Request:
+     -POST /api/upload-excel
+     -Content-Type: multipart/form-data
+     -file: <your_excel_file.xlsx>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+# File Upload Workflow
+1) File Validation: The file is validated in the ExcelController to ensure it is an Excel file (.xlsx, .csv) and does not exceed the maximum size limit.
+2) Temporary Storage: The file is stored temporarily in the application's storage directory.
+3) Job Dispatch: A background job (ExcelImportJob) is dispatched to process the rows of the Excel file asynchronously.
+4) Data Import: The rows are read and imported into the database (e.g., the excel_imports table).
+5) Clean Up: After processing, the temporary Excel file is deleted.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Job Processing
+1. Job Setup
+   The ExcelImportJob job handles the processing of Excel rows asynchronously. It reads the uploaded file and inserts each row into the database. The job is defined in app/Jobs/ExcelImportJob.php.
 
-## License
+2. Job Execution
+   To process the job, run the queue worker:
+    -php artisan queue:work
+    This will begin processing any pending jobs that have been queued.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Testing
+
+1. Testing the Upload Endpoint
+   You can test the file upload functionality using Postman or any API client by sending a POST request to /upload-excel with an Excel file attached.
+
+2. Testing Background Job Processing
+   To test that the job is properly processed, check the excel_imports table in your database after uploading the Excel file. If the data is correctly imported, the job worked as expected.
+
+# Troubleshooting
+File Upload Errors: If you encounter issues with file uploads, ensure that your upload_max_filesize and post_max_size settings in PHP are correctly configured.
+
+Queue Worker Not Running: If jobs aren't being processed, ensure that the queue worker is running by executing:
+ -php artisan queue:work
+
+
